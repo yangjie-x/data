@@ -1,0 +1,44 @@
+#include <stdlib.h>
+
+void stringtoint()
+{
+	/*
+	* int atoi(const char *nptr) 
+	* 不能转换返回0
+	* 正常返回整数
+	*/
+	
+    //正常转换
+   const char * str = "123";
+   printf("str   %d\n",atoi(str));
+   const char * str1 = "+123";
+   printf("str1  %d\n",atoi(str1));
+   const char * str2 = "-123";
+   printf("str2  %d\n",atoi(str2));
+   //空格，换行符，制表符跳过
+   const char * str3 = "\n123";
+   printf("str3  %d\n",atoi(str3));
+   const char * str4 = "\t123";
+   printf("str4  %d\n",atoi(str4));
+   const char * str5 = " 123";
+   printf("str5  %d\n",atoi(str5));
+   //小数，只转小数点前的
+   const char * str6 = "-123.1";
+   printf("str6  %d\n",atoi(str6));
+   //只转非数字前的数组,第一个碰到非数字，停止转换
+   const char * str7 = "12a3";
+   printf("str7  %d\n",atoi(str7));
+   const char * str8 = "a12a3";
+   printf("str8  %d\n",atoi(str8));
+}
+
+结果：
+str   123
+str1  123
+str2  -123
+str3  123
+str4  123
+str5  123
+str6  -123
+str7  12
+str8  0

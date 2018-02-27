@@ -1,0 +1,34 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+int checkStringIsInt(const char * str)
+{
+    if(str == NULL) 
+    {   
+        printf("str is null\n");
+        return 1;
+    }   
+
+	//遍历字符串，遇到\0停止
+    while((*str) != '\0')
+    {   
+        int num = (int)(*str);
+        if(num  < 48 || num > 57) //判断字符ascii码是否为数字，不值退出
+        {   
+            printf("str is not a int\n");
+            return 1;
+        }   
+        str++;
+    }   
+
+    printf("str is a int\n");
+    return 0;
+}
+
+int main()
+{
+    const char * str  = "12312313";
+    checkStringIsInt(str);
+
+    return 0;
+}
